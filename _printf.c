@@ -7,6 +7,8 @@
 int _printf(const char *format, ...)
 {
 	int count = 0, i, j;
+	char buffer[BUFFER_SIZE];
+	int buff_index = 0;
 	print_t print_funcs[] = {
 		{"c", print_char},
 		{"s", print_string},
@@ -36,8 +38,16 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-			count += _putchar(format[i]);
+			buffer[buff_index++] = format[i];
+			count++;
+			if (buff_index == BUFFER_SIZE)
+			{
+				write(1, buffer, BUFFER_SIZE);
+				buff_index = 0;
+			}
 	}
+	if (buff_index > 0)
+		write(1, buffer, buff_index);
 	va_end(args);
 	return (count);
 }
