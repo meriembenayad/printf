@@ -42,17 +42,17 @@ int print_percent(va_list args)
  */
 int print_number(int num)
 {
-    int count = 0;
+	int count = 0;
 
-    if (num < 0)
-    {
-        count += write(1, "-", 1);
-        num = -num;
-    }
-    if (num / 10 > 0)
-        count += print_number(num / 10);
-    count += write(1, &"0123456789"[num % 10], 1);
-    return count;
+	if (num < 0)
+	{
+		count += write(1, "-", 1);
+		num = -num;
+	}
+	if (num / 10 > 0)
+		count += print_number(num / 10);
+	count += write(1, &"0123456789"[num % 10], 1);
+	return (count);
 }
 /**
  * print_int - prints integer
@@ -61,6 +61,7 @@ int print_number(int num)
  */
 int print_int(va_list args)
 {
-    int num = va_arg(args, int);
-    return print_number(num);
+	int num = va_arg(args, int);
+
+	return (print_number(num));
 }
