@@ -6,15 +6,10 @@
 #include <limits.h>
 #include <stdarg.h>
 
-/**
- * struct specifier - struct specifier
- * @spec: format specifier
- * @f: function pointer
- */
-typedef struct specifier
+typedef struct token
 {
-	char *spec;
-	int (*f)(va_list);
+    char *spec;
+    int (*f)(va_list);
 } print_t;
 
 int _printf(const char *format, ...);
@@ -22,5 +17,7 @@ int _printf(const char *format, ...);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
+int print_number(int num);
+int print_int(va_list args);
 
 #endif

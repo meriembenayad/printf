@@ -35,3 +35,32 @@ int print_percent(va_list args)
 	(void)args;
 	return (write(1, "%", 1));
 }
+/**
+ * print_number - prints number
+ * @num: number
+ * Return: number
+ */
+int print_number(int num)
+{
+    int count = 0;
+
+    if (num < 0)
+    {
+        count += write(1, "-", 1);
+        num = -num;
+    }
+    if (num / 10 > 0)
+        count += print_number(num / 10);
+    count += write(1, &"0123456789"[num % 10], 1);
+    return count;
+}
+/**
+ * print_int - prints integer
+ * @args: argument
+ * Return: integer printed
+ */
+int print_int(va_list args)
+{
+    int num = va_arg(args, int);
+    return print_number(num);
+}
