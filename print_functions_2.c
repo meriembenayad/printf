@@ -20,7 +20,7 @@ int convert_to_binary(va_list args)
 	while (binary[i] == '0' && i < 31)
 		i++;
 	while (binary[i] != '\0')
-		count += write(1, &binary[i++], 1);
+		count += _putchar(binary[i++]);
 	return (count);
 }
 /**
@@ -32,7 +32,7 @@ int print_unsigned(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	char buffer[11];
-	int i = 10;
+	int i = 10, count = 0;
 
 	buffer[i] = '\0';
 	if (num == 0)
@@ -42,7 +42,9 @@ int print_unsigned(va_list args)
 		buffer[--i] = (num % 10) + '0';
 		num /= 10;
 	}
-	return (write(1, &buffer[i], 10 - i));
+	while (buffer[i] != '\0')
+		count += _putchar(buffer[i++]);
+	return (count);
 }
 /**
  * print_octal - prints octal
@@ -53,7 +55,7 @@ int print_octal(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	char buffer[12];
-	int i = 11;
+	int i = 11, count = 0;
 
 	buffer[i] = '\0';
 	if (num == 0)
@@ -63,5 +65,7 @@ int print_octal(va_list args)
 		buffer[--i] = (num % 8) + '0';
 		num /= 8;
 	}
-	return (write(1, &buffer[i], 11 - i));
+	while (buffer[i] != '\0')
+		count += _putchar(buffer[i++]);
+	return (count);
 }

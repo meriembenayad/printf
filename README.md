@@ -11,7 +11,7 @@ You need to handle the conversion specifiers below:
 - d (decimal)
 - i (integer)
 
-**Task 2:** Handle custom conversion specifier: 
+**Task 2:** Handle custom conversion specifier:
 b (convert unsigned int to binary)
 
 **Task 3:** Handle conversion specifiers below:

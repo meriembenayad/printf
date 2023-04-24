@@ -8,7 +8,7 @@ int print_char(va_list args)
 {
 	int character = va_arg(args, int);
 
-	return (write(1, &character, 1));
+	return (_putchar(character));
 }
 
 /**
@@ -22,7 +22,7 @@ int print_string(va_list args)
 	int count = 0, i;
 
 	for (i = 0; str[i] != '\0'; i++)
-		count += write(1, &str[i], 1);
+		count += _putchar(str[i]);
 	return (count);
 }
 /**
@@ -33,7 +33,7 @@ int print_string(va_list args)
 int print_percent(va_list args)
 {
 	(void)args;
-	return (write(1, "%", 1));
+	return (_putchar('%'));
 }
 /**
  * print_number - prints number
@@ -46,12 +46,12 @@ int print_number(int num)
 
 	if (num < 0)
 	{
-		count += write(1, "-", 1);
+		count += _putchar('-');
 		num = -num;
 	}
 	if (num / 10 > 0)
 		count += print_number(num / 10);
-	count += write(1, &"0123456789"[num % 10], 1);
+	count += _putchar("0123456789"[num % 10]);
 	return (count);
 }
 /**
