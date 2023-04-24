@@ -29,9 +29,9 @@ b (convert unsigned int to binary)
 **Task 6:** Handle the conversion specifier: p
 
 **Task 7:** Handle flag characters for non-conversion specifiers:
-- `\+` (plus)
-- " " (space)
-- `\#` (hash)
+- `+` (plus)
+- ` ` (space)
+- `#` (hash)
 
 **Task 8:** Handle the length modifiers for non-custom conversion specifiers:
 - l

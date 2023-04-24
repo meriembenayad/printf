@@ -19,5 +19,6 @@ int print_string(va_list args);
 int print_percent(va_list args);
 int print_number(int num);
 int print_int(va_list args);
+int convert_to_binary(va_list args);
 
 #endif

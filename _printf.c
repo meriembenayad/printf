@@ -8,6 +8,7 @@ int _printf(const char *format, ...)
         {"%", print_percent},
         {"d", print_int},
         {"i", print_int},
+	{"b", convert_to_binary},
         {NULL, NULL}};
 
     va_list args;
