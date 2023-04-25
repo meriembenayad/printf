@@ -34,8 +34,8 @@ b (convert unsigned int to binary)
 - `#` (hash)
 
 **Task 8:** Handle the length modifiers for non-custom conversion specifiers:
-- l
-- h
+- `l`
+- `h`
 
 **Task 9:** Handle the field widthfor non-custom conversion specifiers
 
@@ -53,5 +53,5 @@ b (convert unsigned int to binary)
 
 Team's members:
 ---------------
-- Meriem Ben Ayad
-- Thami Baladi
+- `Meriem Ben Ayad`
+- `Thami Baladi`
