@@ -41,32 +41,33 @@ int print_percent(va_list args)
 	return (_putchar('%'));
 }
 /**
- * print_number - prints number
- * @num: number
- * Return: number
- */
-int print_number(int num)
-{
-	int count = 0;
-
-	if (num < 0)
-	{
-		count += _putchar('-');
-		num = -num;
-	}
-	if (num / 10 > 0)
-		count += print_number(num / 10);
-	count += _putchar("0123456789"[num % 10]);
-	return (count);
-}
-/**
  * print_int - prints integer
  * @args: argument
  * Return: integer printed
  */
-int print_int(va_list args)
+int print_int(va_list ap)
 {
-	int num = va_arg(args, int);
+	int n = va_arg(ap, int);
+	unsigned int num = n;
+	int div = 1, count = 0;
+	char c;
 
-	return (print_number(num));
+	if (n < 0)
+	{
+		count += write(1, "-", 1);
+		num = -n;
+	}
+
+	while (num / div >= 10)
+		div *= 10;
+
+	while (div >= 1)
+	{
+		c = '0' + num / div;
+		count += write(1, &c, 1);
+		num %= div;
+		div /= 10;
+	}
+
+	return (count);
 }
