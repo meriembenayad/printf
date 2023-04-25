@@ -29,10 +29,18 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			for (j = 0; print_funcs[j].spec != NULL; j++)
+			if (format[i] == 'y')
 			{
-				if (format[i] == *print_funcs[j].spec)
-					count += print_funcs[j].f(args);
+				count += _putchar('%');
+				count += _putchar('y');
+			}
+			else
+			{
+				for (j = 0; print_funcs[j].spec != NULL; j++)
+				{
+					if (format[i] == *print_funcs[j].spec)
+						count += print_funcs[j].f(args);
+				}
 			}
 		}
 		else
@@ -41,4 +49,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
