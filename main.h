@@ -36,4 +36,6 @@ int print_hexa(va_list args, int uppercase);
 int print_hexa_lower(va_list args);
 int print_hexa_upper(va_list args);
 
+int print_S(va_list args);
+
 #endif
