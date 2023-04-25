@@ -3,27 +3,27 @@
 
 **Task 0:** Write a function that produces output according to a format.
 You need to handle the conversion specifiers below:
-- c (character)
-- s (string)
-- % (percent)
+- `c` (character)
+- `s` (string)
+- `%` (percent)
 
 **Task 1:** Handle the conversion specifiers below:
-- d (decimal)
-- i (integer)
+- `d` (decimal)
+- `i` (integer)
 
 **Task 2:** Handle custom conversion specifier:
 b (convert unsigned int to binary)
 
 **Task 3:** Handle conversion specifiers below:
-- u
-- o
-- x
-- X
+- `u`
+- `o`
+- `x`
+- `X`
 
 **Task 4:** Use a local buffer of 1024 chars in order to call write as little as possible.
 
 **Task 5:** Handle conversion specifier:
-- S (prints string)
+- `S` (prints string)
 - Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
 
 **Task 6:** Handle the conversion specifier: p
