@@ -8,22 +8,13 @@ int _printf(const char *format, ...)
 {
 	int count = 0, i, j;
 	print_t print_funcs[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"%", print_percent},
-		{"d", print_int},
-		{"i", print_int},
-		{"b", convert_to_binary},
-		{"u", print_unsigned},
-		{"o", print_octal},
-		{"x", print_hexa_lower},
-		{"X", print_hexa_upper},
-		{NULL, NULL}};
-
+		{"c", print_char}, {"s", print_string}, {"%", print_percent},
+		{"d", print_int}, {"i", print_int}, {"b", convert_to_binary},
+		{"u", print_unsigned}, {"o", print_octal},
+		{"x", print_hexa_lower}, {"X", print_hexa_upper}, {NULL, NULL}};
 	va_list args;
 
 	va_start(args, format);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
