@@ -21,10 +21,10 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == 'y')
+			if (format[i] != print_func[i].spec)
 			{
 				count += _putchar('%');
-				count += _putchar('y');
+				count += _putchar(format[i]);
 			}
 			else
 			{
