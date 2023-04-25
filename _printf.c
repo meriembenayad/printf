@@ -6,12 +6,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0, i, j, flag;
-	print_t print_funcs[] = {{"c", print_char}, {"s", print_string},
-		{"%", print_percent}, {"d", print_int}, {"i", print_int},
-		{"b", convert_to_binary}, {"u", print_unsigned}, {"o", print_octal},
-		{"x", print_hexa_lower}, {"X", print_hexa_upper}, {"S", print_S},
-		{NULL, NULL}};
+	int count = 0, i, j, flag, space = 0;
+	print_t *print_funcs = get_print_funcs();
 	va_list args;
 
 	va_start(args, format);
@@ -20,11 +16,18 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			for (; format[i] == ' '; i++)
+				space = 0;
 			flag = 0;
-			for (j = 0; print_funcs[j].spec; j++)
+			for (j = 0; print_funcs[j].spec != NULL; j++)
 			{
 				if (format[i] == *print_funcs[j].spec)
 				{
+					if (space)
+					{
+						count += _putchar(' ');
+						space = 0;
+					}
 					count += print_funcs[j].f(args);
 					flag = 1;
 					break;

@@ -44,3 +44,32 @@ int print_hexa_upper(va_list args)
 {
 	return (print_hexa(args, 1));
 }
+/**
+ * print_pointer - prints pointer
+ * @args: argument
+ * Return: pointer printed
+ */
+int print_pointer(va_list args)
+{
+	int count = 2;
+	unsigned long num_addrs;
+	char map_to[] = "0123456789abcdef";
+	void *addrs = va_arg(args, void *);
+
+	if (addrs == NULL)
+		return (write(1, "(nil)", 5));
+
+	num_addrs = (unsigned long)addrs;
+
+	_putchar('0');
+	_putchar('x');
+
+	while (num_addrs > 0)
+	{
+		_putchar(map_to[num_addrs % 16]);
+		num_addrs /= 16;
+		count++;
+	}
+
+	return (count);
+}

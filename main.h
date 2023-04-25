@@ -34,6 +34,7 @@ typedef struct specifier
 } print_t;
 
 int _putchar(char c);
+print_t *get_print_funcs(void);
 int _printf(const char *format, ...);
 
 int print_char(va_list args);
@@ -48,6 +49,7 @@ int print_octal(va_list args);
 int print_hexa(va_list args, int uppercase);
 int print_hexa_lower(va_list args);
 int print_hexa_upper(va_list args);
+int print_pointer(va_list args);
 
 int print_S(va_list args);
 /* get_flag */
