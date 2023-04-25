@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0, i, j, flag, space_flag = 0;
+	int count = 0, i, j, flag;
 	print_t print_funcs[] = {{"c", print_char}, {"s", print_string},
 		{"%", print_percent}, {"d", print_int}, {"i", print_int},
 		{"b", convert_to_binary}, {"u", print_unsigned}, {"o", print_octal},
@@ -20,19 +20,15 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			for (; format[i] == ' '; i++)
-				space_flag = 1;
 			flag = 0;
-			for (j = 0; print_funcs[j].spec != NULL; j++)
+			for (j = 0; print_funcs[j].spec; j++)
 			{
-				if (space_flag && format[i] == *print_funcs[j].spec)
+				if (format[i] == *print_funcs[j].spec)
 				{
-					count += _putchar(' ');
-					space_flag = 0;
+					count += print_funcs[j].f(args);
+					flag = 1;
+					break;
 				}
-				count += print_funcs[j].f(args);
-				flag = 1;
-				break;
 			}
 			if (flag == 0)
 			{
