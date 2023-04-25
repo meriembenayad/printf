@@ -9,6 +9,20 @@
 #define BUFFERSIZE 1024
 
 /**
+ * struct flags - struct containing flags to "turn on"
+ * when a flag specifier is passed to _printf()
+ * @plus: flag for the '+' character
+ * @space: flag for the ' ' character
+ * @hash: flag for the '#' character
+ */
+typedef struct flags
+{
+	int plus;
+	int space;
+	int hash;
+} flags_t;
+
+/**
  * struct specifier - struct specifier
  * @spec: format specifier
  * @f: function pointer
@@ -36,5 +50,7 @@ int print_hexa_lower(va_list args);
 int print_hexa_upper(va_list args);
 
 int print_S(va_list args);
+/* get_flag */
+int get_flag(char s, flags_t *f);
 
 #endif
