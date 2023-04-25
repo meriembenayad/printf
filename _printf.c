@@ -21,18 +21,15 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] != print_func[i].spec)
+			if (format[i] == *print_funcs[i].spec)
 			{
-				count += _putchar('%');
-				count += _putchar(format[i]);
+				for (j = 0; print_funcs[j].spec; j++)
+					count += print_funcs[j].f(args);
 			}
 			else
 			{
-				for (j = 0; print_funcs[j].spec != NULL; j++)
-				{
-					if (format[i] == *print_funcs[j].spec)
-						count += print_funcs[j].f(args);
-				}
+				count += _putchar('%');
+				count += _putchar(format[i]);
 			}
 		}
 		else
