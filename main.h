@@ -6,6 +6,8 @@
 #include <limits.h>
 #include <stdarg.h>
 
+#define BUFFERSIZE 1024
+
 /**
  * struct specifier - struct specifier
  * @spec: format specifier
