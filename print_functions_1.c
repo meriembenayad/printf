@@ -45,9 +45,9 @@ int print_percent(va_list args)
  * @args: argument
  * Return: integer printed
  */
-int print_int(va_list ap)
+int print_int(va_list args)
 {
-	int n = va_arg(ap, int);
+	int n = va_arg(args, int);
 	unsigned int num = n;
 	int div = 1, count = 0;
 	char c;
